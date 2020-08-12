@@ -4,7 +4,7 @@
 登录heroku
 
 email: zhanghaifeng1123@gmail.com
-pwd : no744634
+pwd：＊＊＊＊＊＊＊＊
 
 ------------------------------------------------------
 var port = normalizePort(process.env.PORT || '3000');
