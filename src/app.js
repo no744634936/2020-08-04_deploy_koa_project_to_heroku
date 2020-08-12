@@ -6,8 +6,9 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const render = require('koa-art-template')
 const index = require('./routes/index')
+const google_auth = require('./routes/google-auth')
+const passport =require("./routes/passport.js")
 const path=require('path')
-
 
 // error handler
 onerror(app)
@@ -26,16 +27,12 @@ render(app, {
     debug: process.env.NODE_ENV !== 'production'  //是否开启调试模式
 });
 
-// logger 演示的代码，可以删除
-// app.use(async (ctx, next) => {
-//   const start = new Date()
-//   await next()
-//   const ms = new Date() - start
-//   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
-// })
-
+app.use(passport.initialize())
+app.use(passport.session())
 // routes
 app.use(index.routes(), index.allowedMethods())
+app.use(google_auth.routes(), index.allowedMethods())
+
 
 // error-handling
 app.on('error', (err, ctx) => {
