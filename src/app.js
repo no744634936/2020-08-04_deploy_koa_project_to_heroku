@@ -9,6 +9,20 @@ const index = require('./routes/index')
 const google_auth = require('./routes/google-auth')
 const passport =require("./routes/passport.js")
 const path=require('path')
+const session = require('koa-session')
+
+//配置session的中间件
+app.keys = ['some secret hurr'];   /*cookie的签名 默认的不用改*/
+const CONFIG = {
+    key: 'koa:sess', /** 默认 */
+    maxAge: 10000,  /*  cookie的过期时间        【需要修改】  */
+    overwrite: true, /** (boolean) can overwrite or not (default true)    没有效果，默认 */
+    httpOnly: true, /**  true表示只有服务器端可以获取cookie */
+    signed: true, /** 默认 签名 */
+    rolling: false, /** 在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false） 【需要修改】 */
+    renew: true, /** (boolean) renew session when session is nearly expired      【需要修改】 renew跟rolling任意一个设为true。当有人在操作的时候即使到了设定的时间也不会断开*/
+};
+app.use(session(CONFIG, app));
 
 // error handler
 onerror(app)
