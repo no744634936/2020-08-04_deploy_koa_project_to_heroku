@@ -35,13 +35,21 @@ npm install http-proxy-middleware
 在client/src 文件夹里添加一个setupProxy.js 文件，里面写上
 
 const { createProxyMiddleware } = require("http-proxy-middleware");
+
 module.exports = function (app) {
+
   app.use(
+  
     ["/api", "/auth/google"],
+    
     createProxyMiddleware({
+    
       target: "http://localhost:3000",
+      
     })
+    
   );
+  
 };
 
 这段代码的意思是，如果有在client 里使用/auth/google 那么就向http://localhost:3000请求。
