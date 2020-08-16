@@ -16,6 +16,8 @@ router.get('/api/current_user',async(ctx,next)=>{
 })
 
 router.get("/api/logout",async(ctx,next)=>{
+
+    //
     ctx.logout();
     ctx.body={
         userInfo:ctx.req.user
