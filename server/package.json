@@ -10,10 +10,13 @@
     "start": "node bin/www",
     "dev": "cross-env NODE_ENV=dev ./node_modules/.bin/nodemon bin/www",
     "prd": "cross-env NODE_ENV=production pm2 start bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix ../client",
+    "both": "concurrently \"npm run dev\" \"npm run client\""
   },
   "dependencies": {
     "art-template": "^4.13.2",
+    "concurrently": "^5.3.0",
     "debug": "^4.1.1",
     "koa": "^2.7.0",
     "koa-art-template": "^1.1.1",
