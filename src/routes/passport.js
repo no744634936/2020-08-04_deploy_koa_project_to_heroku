@@ -10,6 +10,7 @@ passport.use(new GoogleStrategy(
         clientSecret:keys.googleClientSecret,
         callbackURL:"/auth/google/callback",
         scope: ['email',"profile"],
+        proxy:true
     },
     async (accessToken, refreshToken, profile, done) => {
         console.log("profile",profile);

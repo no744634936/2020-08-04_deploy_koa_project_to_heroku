@@ -1,11 +1,12 @@
-module.exports={
-    googleClientID:"708760631929-bc0ra1hftbmga3jb59te0o1t5ptq5tev.apps.googleusercontent.com",
-    googleClientSecret:"zfTfZYQThUDpmcQH2eex09cS",
-    mongoURI:"mongodb+srv://zhanghaifeng:no744634@ec-site-test-dev.hktke.mongodb.net/test"
+
+const ENV=process.env.NODE_ENV;
+
+let keys=null;
+//production 是heroku里的环境参数。注意不是prd
+if(ENV==="production"){
+    keys=require("./prd.js")
+}else{
+    keys=require("./dev.js")
 }
 
-
-//mongodb+srv://zhanghaifeng:no744634@ec-site-test-dev.hktke.mongodb.net/test
-//这个连接中的
-//ec-site-test-dev 是项目名
-//test 是数据库名
+module.exports=keys;
