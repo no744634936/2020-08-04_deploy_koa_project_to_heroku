@@ -41,7 +41,7 @@ passport.serializeUser((user, done)=>{
 // sessionから取り出すときにデシリアライズする
 passport.deserializeUser(async (id, done)=>{
     // console.log(id);
-    //passport.deserializeUser方法拿到passport.serializeUser方法储存再session 里的id
+    //passport.deserializeUser方法拿到passport.serializeUser方法储存在浏览器cookie 里的id
     //然后通过id找到数据库里user的信息。
     let user=await googleUserModel.find_one_by_id(id)
     done(null, user)
