@@ -22,7 +22,7 @@ routes/passport.js
 
 点击按钮使用 路由router.get('/auth/google', passport.authenticate('google'))
 然后就会使用routes/passport.js 文件中的clientID，clientSecret，scope等配置，跳转到google的页面，问用户要权限，
-用户同意后，从谷歌的页面跳转到 /auth/google/callback 路由，这是，浏览器中的url会带一个code 参数，
+用户同意后，从谷歌的页面跳转到 /auth/google/callback 路由，这时，浏览器中的url会带一个code 参数，
 向这样 htttp://localhost:3000/auth/google/callback?code=dagJhdaljgjal123j
 
 
