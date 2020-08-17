@@ -57,7 +57,7 @@ router.get('/api/current_user',async(ctx,next)=>{
     
 })
 
-passport.js 具体怎么工作还是有点模糊
+passport.js 的工作流程查看图片Auth_flow.png
 
 
 
