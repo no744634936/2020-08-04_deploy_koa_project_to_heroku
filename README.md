@@ -42,14 +42,21 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 
 
 然后将user给到ctx.req 里面去，然后就可以使用ctx.req.user 来去得user得信息了。
-就像这样
-router.get("/api/logout",async(ctx,next)=>{
 
-    //
-    ctx.logout();
+就像这样
+
+router.get('/api/current_user',async(ctx,next)=>{
+
+    //通过ctx.req.user 将 passport.deserializeUser方法里储存的user信息取出来。
+    
     ctx.body={
+    
         userInfo:ctx.req.user
+        
+        // userInfo:"zhanghaifeng"
+        
     }
+    
 })
 
 passport.js 具体怎么工作还是有点模糊
