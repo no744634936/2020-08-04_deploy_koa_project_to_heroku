@@ -40,6 +40,18 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 
 
 
+
+然后将user给到ctx.req 里面去，然后就可以使用ctx.req.user 来去得user得信息了。
+就像这样
+router.get("/api/logout",async(ctx,next)=>{
+
+    //
+    ctx.logout();
+    ctx.body={
+        userInfo:ctx.req.user
+    }
+})
+
 passport.js 具体怎么工作还是有点模糊
 
 
