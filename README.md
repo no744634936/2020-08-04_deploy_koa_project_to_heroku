@@ -39,11 +39,9 @@ router.get('/auth/google/callback', passport.authenticate('google', {
 在这个方法里可以将user储存，或则取出，并将user交给done 方法。
 
 
-
-
-然后将user给到ctx.req 里面去，然后就可以使用ctx.req.user 来去得user得信息了。
-
-就像这样
+之后，passport.serializeUser 将 user 得id 放入cookie
+passport.deserializeUser得到浏览器cookie 里的id，然后通过id找到数据库里user的信息之后将user给到ctx.req 里面去，
+然后就可以像下面的代码那样使用ctx.req.user 去得user得信息了。
 
 router.get('/api/current_user',async(ctx,next)=>{
 
