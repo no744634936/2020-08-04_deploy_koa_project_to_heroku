@@ -35,7 +35,7 @@ function UserContainer() {
                 <h2>{current_user_data.user.userInfo.googleId}</h2>
             ):(
                 
-                <h2>fuck</h2>
+                <h2>zhanghaifeng</h2>
 
             )
 
