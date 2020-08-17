@@ -7,7 +7,7 @@ passport.use(new GoogleStrategy(
     {
         clientID:keys.googleClientID,
         clientSecret:keys.googleClientSecret,
-        callbackURL:"/auth/google/callback",
+        callbackURL:"/auth/google/callback",// 和google developer console 里面设定的redirect url 一致
         scope: ['email',"profile"],
     },
     (accessToken, refreshToken, profile, cb) => {
