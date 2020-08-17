@@ -34,6 +34,7 @@ passport.serializeUser((user, done)=>{
     //passport.serializeUser 方法拿到
     //async (accessToken, refreshToken, profile, done) 里放入的user
     //并将 user.id 放入session里面 。session里面就有了user 的id
+    //这个id 是数据库mongodb里面的取出来的user的id
     done(null, user.id)
 })
   
