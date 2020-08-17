@@ -35,7 +35,7 @@ gitignore 文件里写上 keys.js    //这里因为是用于学习，所以就�
 
 然后按顺序查看
 
-routes/passport.js      //注意着个文件不应该放在routes里面的，但是我为了方便就放了在routes文件夹里的
+routes/passport.js      //注意着个文件不应该放在routes里面的，应该放进config文件夹的。但是我为了方便就放了在routes文件夹里的
 
 routes/google-auth.js
 
