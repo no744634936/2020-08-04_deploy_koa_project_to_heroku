@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector} from "react-redux"
 import {Link} from "react-router-dom"
+import Payment from "../payment/payment.js"
 
 
    
@@ -26,7 +27,10 @@ function Header() {
 
 function renderContent(current_user_data){
     if(current_user_data){
-        return <li><a href="/api/logout">logout</a></li>
+        return [
+            <li key="1"><Payment></Payment></li>,
+            <li key="2"><a href="/api/logout">logout</a></li>
+        ]
     }else{
         return <li><a href="/auth/google">login with google</a></li>
     }

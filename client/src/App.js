@@ -11,6 +11,10 @@ import Landing from "./components/landing/landing.js"
 
 const Dashboard=()=><h2>Dashboard</h2>
 
+//这里是在测试react 的.end.development环境变量是设置成功
+console.log("stripe key is :",process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY);
+console.log("development or production ? answer is :",process.env.NODE_ENV);
+
 function App() {
     let dispatch=useDispatch()
     useEffect(()=>{
@@ -18,8 +22,6 @@ function App() {
     },[dispatch])
 
     let current_user_data=useSelector(state=>state.current_user)
-    console.log("fuck");
-    console.log(current_user_data.user.userInfo);
   return (
         <BrowserRouter>
             <div className="App">
