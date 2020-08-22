@@ -31,3 +31,11 @@ http://localhost:5500/
 然后手动输入 http://localhost:5500/current_user 就可以看到当前登录用户的id了。
 
 
+-------------------------------------------------------------------
+header component 获取当前用户的数据
+
+header 里面使用了link 跟a tag
+link里面写这个react app自己的路径
+a tag写外部的路径，比如server的路径，或者  www.google.com 这样的路径
+
+

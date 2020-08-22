@@ -15,13 +15,15 @@ router.get('/api/current_user',async(ctx,next)=>{
     }
 })
 
+router.get("/test",async(ctx,next)=>{
+    ctx.body="test test"
+})
+
 router.get("/api/logout",async(ctx,next)=>{
 
-    //
     ctx.logout();
-    ctx.body={
-        userInfo:ctx.req.user
-    }
+    ctx.redirect("/")
+
 })
 
 
