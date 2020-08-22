@@ -21,5 +21,8 @@ npm install react-stripe-checkout --save  //这个包可以显示信用卡输入
 -------------------------------------------------
 
 这一章节写了 
-header component 
+header component 和
 payment component
+
+信用卡的测试用账号是
+4242 4242 4242 4242
