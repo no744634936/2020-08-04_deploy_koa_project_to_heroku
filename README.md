@@ -13,6 +13,9 @@ branch 阅读顺序
 5, create and connect to client
 
 6,login_with_google_in_fontend_with_redux
+7.header_access_state
+8,pay_money
+9,pay_money_2
 
 
 ---------------------------------
