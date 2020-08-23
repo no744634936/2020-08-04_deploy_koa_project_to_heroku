@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const keys=require("../config/keys.js")
 
 //使用mlab的连接方式
-mongoose.connect(keys.mongoURI,{useNewUrlParser: true,useUnifiedTopology: true});
+mongoose.connect(keys.mongoURI,{useNewUrlParser: true,useUnifiedTopology: true,useFindAndModify:false});
 
 
 // 连接本地mongodb时的写法

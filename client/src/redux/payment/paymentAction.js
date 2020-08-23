@@ -1,10 +1,10 @@
 import fetchUser from "../currentUser/currentUserAction.js"
 
-const handlePayment=(token)=>{
+ const handlePayment=(token)=>{
     return async(dispatch)=>{
 
         //向后端发送请求之后，返回一个新的，包含钱的user信息。
-        let response=await fetch('api/payment', {
+        let response=await fetch('/api/payment', {
             method:'POST',
             // header 的作用是什么不太清楚
             headers: {
@@ -17,6 +17,12 @@ const handlePayment=(token)=>{
         })
         
         let user = await response.json();
-        dispatch(fetchUsersSuccess(user)) 
+        console.log("oops!!");
+        console.log(user);
+
+        //更新数据之后，要重新dispatch fetchUser 获取新的数据。
+        dispatch(fetchUser(user)) 
     }
 }
+
+export default handlePayment

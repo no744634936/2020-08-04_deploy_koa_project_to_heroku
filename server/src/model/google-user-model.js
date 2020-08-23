@@ -27,6 +27,16 @@ class GoogleUserModel{
         console.log(response);
         return response;
     }
+
+    //充值credits的点数
+    chargeCredits=async(userId,credits)=>{
+        let response=await Users.findByIdAndUpdate(
+            {_id:userId},
+            {credits:credits},
+            {new:true}
+        )
+        return response;
+    }
 }
 
 // let test=new GoogleUserModel();

@@ -2,14 +2,17 @@ const Koa = require('koa')
 const app = new Koa()
 const json = require('koa-json')
 const onerror = require('koa-onerror')
-const bodyparser = require('koa-bodyparser')
+const bodyparser = require('koa-bodyparser') //解析前端post过来的数据。 
 const logger = require('koa-logger')
 const render = require('koa-art-template')
 const index = require('./routes/index')
-const google_auth = require('./routes/google-auth')
+const google_auth = require('./routes/google-auth.js')
+const payment_route=require("./routes/payment.js")
 const passport =require("./routes/passport.js")
 const path=require('path')
 const session = require('koa-session')
+const send = require('koa-send');
+const static = require('koa-static');
 
 //配置session的中间件
 app.keys = ['some secret hurr'];   /*cookie的签名 默认的不用改*/
@@ -33,7 +36,7 @@ app.use(bodyparser({
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(static(__dirname + '/public'))
 
 render(app, {
     root: path.join(__dirname, 'views'),   //视图的位置
@@ -46,6 +49,25 @@ app.use(passport.session())
 // routes
 app.use(index.routes(), index.allowedMethods())
 app.use(google_auth.routes(), index.allowedMethods())
+app.use(payment_route.routes(), index.allowedMethods())
+
+
+if (process.env.NODE_ENV === 'production') {
+
+    //使用client/build 文件夹里的静态资源
+    app.use(static('../../client/build'));
+  
+    router.get('*', async (ctx, next) => {
+      try {
+        //任何路由来都要先通过index.html
+        await send(ctx, '../../client/build/index.html');
+      } catch(err) {
+        // TODO: handle err?
+        return next();
+      }
+    });
+  }
+  
 
 
 // error-handling

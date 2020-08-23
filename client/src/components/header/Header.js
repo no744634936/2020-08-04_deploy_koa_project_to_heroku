@@ -29,7 +29,8 @@ function renderContent(current_user_data){
     if(current_user_data){
         return [
             <li key="1"><Payment></Payment></li>,
-            <li key="2"><a href="/api/logout">logout</a></li>
+            <li key="2">credits:{current_user_data.credits}</li>,
+            <li key="3"><a href="/api/logout">logout</a></li>
         ]
     }else{
         return <li><a href="/auth/google">login with google</a></li>

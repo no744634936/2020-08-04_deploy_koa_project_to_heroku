@@ -1,6 +1,10 @@
 import React from 'react'
 import StripeCheckout from "react-stripe-checkout"
+import {useDispatch} from "react-redux"
+import handlePayment from "../../redux/payment//paymentAction.js"
+
 export default function Payment() {
+    let dispatch=useDispatch()
 
     return (
         // 这个component的写法是stripe规定的照着写就行了
@@ -12,7 +16,10 @@ export default function Payment() {
                 // 500美分就是5美元
                 amount={500}
                 //点击付款之后，会打印一个付款object，这个object就是stripe发送过来的token。
-                token={token=>console.log(token)}
+                token={token=>{
+                    // console.log(token);
+                    dispatch(handlePayment(token))
+                }}
                 stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY}
             >
                 <button className="btn">

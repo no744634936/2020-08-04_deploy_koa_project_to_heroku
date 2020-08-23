@@ -4,6 +4,7 @@ const mongoose=require("./db.js")
 
 let userSchema=new mongoose.Schema({
     googleId:String,
+    credits:{type:Number,default:0},
     status:{
         type:Number,
         default:0, //默认参数
